@@ -1,0 +1,12 @@
+
+------------------------------------------------------------------
+welcome to budget zork!!
+you are imprisoned for crimes you most definatly commited
+your task is to escape from prison 
+once you have done this you will have won the game
+you will find weapons, enemies and items along the way
+enjoy
+
+type "help" for a list of avaliable commands
+then type "help *command*" for how the command works
+-------------------------------------------------------------------
