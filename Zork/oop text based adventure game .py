@@ -33,9 +33,12 @@ class Item:
         self.prefix = prefix
         self.used_for = used_for
         self.message = message
-        
-class Prompts(Cmd):
 
+# this is a class using the cmd module that lets the player controll the game. any function with the prefix "do_" is a command that can be used by the player
+# these functions are designed to get the required items to perform the function and then they call an external function to actualy do the thing
+# the strings in the function are prompts that the player can veiw by typing "help {command}" and in this caase they can also act as the comment explaining the function      
+class Prompts(Cmd): 
+    
     def do_look(self, args):
         "this will tell you what room your in, whats in it and where you can go from there"
         look(current_room)
@@ -145,7 +148,7 @@ SuperMan = Enemie("superman", 1000, 30, 95, "'Im a big fan of justice \nbut then
 chef = Enemie("chef", 20, 30, 40, "Im gonna cut you up!", "a ")
 guard = Enemie("guard", 15, 15, 75, "what are you doing out of your cell!?!?! \n*brandshes batton*", "a ")
 
-
+# makes the items, its probably better to not have this in a function but i prefer it for organisational purpose
 def make_items():
     nail = Item("nail", "a", [("attack", 20, 20), "unlock"])
     paper = Item("paper", "a peice of", [("attack", 2, 90), ("read", "Zork intro text.txt")])
@@ -163,6 +166,7 @@ def make_items():
 nail, paper, batton, cake, apple, knife, RPG, code_paper, key_paper, easter_egg = make_items()
 
 
+# makes the rooms, its probably better to not have this in a function but i prefer it for organisational purpose
 def make_rooms():
     #Room(name, rooms, items, unlocked, enemies)
     cell = Room("cell", [], [], [], [])
@@ -536,8 +540,9 @@ def veiw(player, item):
             print("you dont have that item") 
 
 
+# this turns the prompts class into a loop in wwhich the player can input commands
 look(current_room)
-if __name__ == '__main__':
+if __name__ == '__main__': # this line just makes sure the current file is the main file
     prompt = Prompts()
     prompt.prompt = '> '
     prompt.cmdloop('')
