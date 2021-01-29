@@ -48,7 +48,7 @@ class Prompts(Cmd):
         if current_room.name == "exit":
             print("you won!!")
             if easter_egg in player.items:
-                print("and you founf the eater egg, what a gamer")
+                print("and you found the eater egg, what a gamer")
             return True
     def do_take(self,args):
         "this will take the item you specify from in the room and put it your items"
