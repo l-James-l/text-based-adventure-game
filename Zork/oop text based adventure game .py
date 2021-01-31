@@ -33,6 +33,8 @@ class Item:
         self.used_for = used_for
         self.message = message
         
+
+# class for the cmd module that takes the user input and executes that function
 class Prompts(Cmd):
 
     def do_look(self, args):
@@ -144,7 +146,7 @@ SuperMan = Enemie("superman", 1000, 30, 95, "'Im a big fan of justice \nbut then
 chef = Enemie("chef", 20, 30, 40, "Im gonna cut you up!")
 guard = Enemie("guard", 15, 15, 75, "what are you doing out of your cell!?!?!")
 
-
+# I know that it would be better to not have this in a function but it looks better
 def make_items():
     nail = Item("nail", "a", [("attack", 20, 20), "unlock"])
     paper = Item("paper", "a peice of", [("attack", 2, 90), ("read", "Zork intro text.txt")])
@@ -161,7 +163,7 @@ def make_items():
 
 nail, paper, batton, cake, apple, knife, RPG, code_paper, key_paper, easter_egg = make_items()
 
-
+#previous comment applies here too
 def make_rooms():
     #Room(name, rooms, items, unlocked, enemies)
     cell = Room("cell", [], [], [], [])
@@ -263,7 +265,7 @@ def make_rooms():
 cell = make_rooms()
 current_room = cell
 
-
+# the prompts call these functions. the functions in the prompts class sort out the correct variables to pass to these fucntions which actually do the things 
 def look(current_room):
     string = ("")
     for i in range(0, len(current_room.name)):
@@ -538,6 +540,7 @@ def veiw(player, item):
             print("you dont have that item") 
 
 
+# turns the prompts class into the cmd loop that the user can input commands for
 look(current_room)
 if __name__ == '__main__':
     prompt = Prompts()
